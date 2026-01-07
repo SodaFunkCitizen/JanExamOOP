@@ -18,17 +18,33 @@ using System.Text.Json;
 
 namespace WpfApp1
 {
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+    }
+    
     public abstract class Robot
     {
 
 
         #region Properties
-
         private readonly string _Robotname;
+        private readonly string _RobotType;
         public string RobotName
         {
             get { return _Robotname; }
+        }
+        public string RobotType
+        {
+            get { return _RobotType; }
         }
 
         public double PowerCapicityKWH { get; set; }
@@ -36,11 +52,12 @@ namespace WpfApp1
         #endregion
 
         #region Constructors
-        public Robot(string name, double PowerCap, double CurrentPower)
+        public Robot(string name, double PowerCap, double CurrentPower, string type)
         {
             _Robotname = name;
             PowerCapicityKWH = PowerCap;
             CurrentPowerKWH = CurrentPower;
+            _RobotType = type;
         }
 
         #endregion
@@ -48,36 +65,39 @@ namespace WpfApp1
         {
 
         }
-        static void downloadSkill()
+        public static void downloadSkill()
         {
 
         }
+        static void GetBatteryPercentage()
+        {
 
+        }
+        public string DisplayBatteryInformation()
+        {
+         return $"Battery information\nCapacity:{PowerCapicityKWH}KWH\nCurrent Power:{CurrentPowerKWH}KWH\nBattery Level:{(CurrentPowerKWH / PowerCapicityKWH) * 100}%)";
+        }
+        public string DescribeRobot()
+        {
+            return $"Robot Name:{RobotName}\nPower Capacity:{PowerCapicityKWH}KWH\nCurrent Power:{CurrentPowerKWH}KWH";
+        }
+        public override string ToString()
+        {
+            return $"{RobotName}-{RobotType}";
+        }
     }
     public abstract class deliveryRobot : Robot
     {
-        public deliveryRobot(string name, double PowerCap, double CurrentPower)
-            : base(name, PowerCap, CurrentPower)
+        public deliveryRobot(string name, double PowerCap, double CurrentPower,string type)
+            : base(name, PowerCap, CurrentPower,type)
         {
         }
     }
     public abstract class householdRobot : Robot
     {
-        public householdRobot(string name, double PowerCap, double CurrentPower)
-            : base(name, PowerCap, CurrentPower)
+        public householdRobot(string name, double PowerCap, double CurrentPower, string type)
+            : base(name, PowerCap, CurrentPower, type)
         {
         }
     }
 }
-
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-    }

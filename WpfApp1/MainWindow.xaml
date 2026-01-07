@@ -5,24 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="450" Width="860"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Loaded="Window_Loaded">
-    <Grid>
-        <StackPanel Margin = "20">
+    <Grid Margin="0,0,121,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="249*"/>
+            <RowDefinition Height="185*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" MinWidth="742.408" />
+            <ColumnDefinition Width="auto" MinWidth="580.619" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text = "Filter" FontSize="20" RenderTransformOrigin="0.869,1.125" Margin="118,49,569,162" />
+        <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\robot.png" RenderTransformOrigin="-2.451,1.055" Grid.Column="0" Margin="187,90,507,89"/>
+        <RadioButton x:Name = "allrobot" Margin = "87,0,469,184" Checked = "HandleCheck" 
+            GroupName = "Robot" Content = "All Robots" RenderTransformOrigin="0.023,0.533" Grid.RowSpan="2"/>
+        <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\household-robot.png" RenderTransformOrigin="-2.451,1.055" Grid.Column="0" Margin="167,202,494,164" Grid.RowSpan="2"/>
+        <RadioButton x:Name = "household" Margin = "87,24,478,-14" Checked = "HandleCheck" 
+            GroupName = "Robot" Content = "Houshold" RenderTransformOrigin="-6.936,0.487" Grid.RowSpan="2" />
+        <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\delivery-robot.png" RenderTransformOrigin="-2.451,1.055" Grid.Column="0" Margin="175,76,495,42" Grid.Row="1"/>
+        <RadioButton x:Name = "Delivery" Margin = "87,19,395,-14" Checked = "HandleCheck" 
+GroupName = "Robot" Content = "Delivery" RenderTransformOrigin="-0.317,0.515" Grid.Row="1" />
+        <TextBlock Text = "Robot List" FontSize="20" RenderTransformOrigin="0.507,1.385" Margin="360,49,320,161" />
+        <StackPanel Orientation = "Horizontal" Margin="0,0,529,-14" Grid.ColumnSpan="2" Grid.RowSpan="2">
 
-            <TextBlock Text = "Filter" FontSize="20" Width="762" />
-            <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\robot.png" Height="86" Width="116" RenderTransformOrigin="-2.451,1.055"/>
-            <RadioButton x:Name = "allrobot" Margin = "0" Checked = "HandleCheck" 
-            GroupName = "Robot" Content = "All Robots" Width="480" />
-            <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\household-robot.png" Height="86" Width="116" RenderTransformOrigin="-2.451,1.055"/>
-            <RadioButton x:Name = "household" Margin = "5" Checked = "HandleCheck" 
-            GroupName = "Robot" Content = "Houshold" />
-            <Image Source="C:\Users\CorhyProbst-STUDENT\source\repos\JanExamOOP\WpfApp1\images\delivery-robot.png" Height="86" Width="116" RenderTransformOrigin="-2.451,1.055"/>
-            <RadioButton x:Name = "Delivery" Margin = "5" Checked = "HandleCheck" 
-GroupName = "Robot" Content = "Delivery" />
-
+            <ListBox x:Name = "listbox" Width = "203" RenderTransformOrigin="100,0.502" Height="203" Margin="300,0,0,0">
+                <ListBoxItem Content = "Housebot 01 - [HouseholdRobot]"/>
+                <ListBoxItem Content = "GardenMate - [HouseholdRobot]" RenderTransformOrigin="3.155,1.082"/>
+                <ListBoxItem Content = "DeliverBot - [DeliverRobot]"/>
+                <ListBoxItem Content = "FlyBot - [DeliveryRobot]"/>
+                <ListBoxItem Content = "Driver - [DeliveryRobot]"/>
+            </ListBox>
         </StackPanel>
+        <TextBlock Text = "Robot Details" FontSize="20" Margin="620,49,10,0" Grid.RowSpan="2" />
     </Grid>
-
 </Window>

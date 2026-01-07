@@ -18,8 +18,10 @@ using System.Text.Json;
 
 namespace WpfApp1
 {
+
     public abstract class Robot
     {
+
 
         #region Properties
 
@@ -40,9 +42,35 @@ namespace WpfApp1
             PowerCapicityKWH = PowerCap;
             CurrentPowerKWH = CurrentPower;
         }
+
+        #endregion
+        static void CreateRobots()
+        {
+
+        }
+        static void downloadSkill()
+        {
+
+        }
+
+    }
+    public abstract class deliveryRobot : Robot
+    {
+        public deliveryRobot(string name, double PowerCap, double CurrentPower)
+            : base(name, PowerCap, CurrentPower)
+        {
+        }
+    }
+    public abstract class householdRobot : Robot
+    {
+        public householdRobot(string name, double PowerCap, double CurrentPower)
+            : base(name, PowerCap, CurrentPower)
+        {
+        }
     }
 }
-#endregion
+
+
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
